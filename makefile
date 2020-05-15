@@ -1,9 +1,11 @@
 .PHONY: all clean
 FLAGS = -Wall -Werror
 SRC = build/src
+TST = build/test
 MAIN = bin/main
+TEST = bin/test
 
-all: $(MAIN)
+all: $(MAIN) $(TEST)
 
 $(MAIN): $(SRC)/main.o $(SRC)/crossing.o $(SRC)/fname.o $(SRC)/area.o $(SRC)/perimeter.o
 	gcc $(FLAGS) $(SRC)/main.o $(SRC)/crossing.o $(SRC)/fname.o $(SRC)/area.o $(SRC)/perimeter.o -o $(MAIN) -lm
@@ -23,6 +25,17 @@ $(SRC)/area.o: src/area.c
 $(SRC)/perimeter.o: src/perimeter.c
 	gcc $(FLAGS) -c src/perimeter.c -o $(SRC)/perimeter.o
 
+$(TST)/main.o: test/main.c
+	gcc $(FLAGS) -I thirdparty -c test/main.c -o $(TST)/main.o
+
+$(TST)/tests.o: test/tests.c
+	gcc $(FLAGS) -I thirdparty -I src -c test/tests.c -o $(TST)/tests.o
+
+$(TEST): $(TST)/main.o $(TST)/tests.o
+	gcc $(FLAGS) $(SRC)/crossing.o $(SRC)/fname.o $(SRC)/area.o $(SRC)/perimeter.o $(TST)/tests.o $(TST)/main.o -o $(TEST) -lm
+   
+
 clean:
 	rm -rf $(SRC)/*.o
+	rm -rf $(TST)/*.o
 	rm -rf bin/*

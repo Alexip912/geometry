@@ -3,7 +3,7 @@ FLAGS = -Wall -Werror
 SRC = build/src
 TST = build/test
 MAIN = bin/main
-TEST = bin/test
+TEST = bin/testing
 
 all: $(MAIN) $(TEST)
 

@@ -9,7 +9,7 @@ int main()
     char figure[30];
     int x1, y1, x2, y2;
     int r1, r2;
-    float s1, s2, p1, p2;
+    int s1, s2, p1, p2;
     printf("Название фигуры - ");
     scanf("%s", figure);
     int flag = figure_name(figure);
@@ -52,14 +52,19 @@ int main()
         printf("Доступные названия фигур: circle");
         return 0;
     }
-    int check = crossing(x1, x2, y1, y2, r1, r2);
-    if (check != 0) {
-        printf("\n<<Окружности не пересекаются>>\n");
-    } else
-        printf("\n<<Окружности не пересекаются>>\n");
-    printf("Площадь первой окружности: %0.2f\n", s1);
-    printf("Периметр первой окружности: %0.2f\n\n", p1);
-    printf("Площадь второй окружности: %0.2f\n", s2);
-    printf("Периметр второй окружности: %0.2f\n", p2);
+    if (s1 == 1 || s2 == 1 || p1 == 1 || p2 == 1) {
+        printf("Неверное значение радиуса");
+        return 0;
+    } else {
+        int check = crossing(x1, x2, y1, y2, r1, r2);
+        if (check != 0) {
+            printf("\n<<Окружности не пересекаются>>\n");
+        } else
+            printf("\n<<Окружности не пересекаются>>\n");
+        printf("Площадь первой окружности: %d\n", s1);
+        printf("Периметр первой окружности: %d\n\n", p1);
+        printf("Площадь второй окружности: %d\n", s2);
+        printf("Периметр второй окружности: %d\n", p2);
+    }
     return 0;
 }

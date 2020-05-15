@@ -34,4 +34,4 @@
 /cmake-build-debug
 *.swp
 main
-test
+testing

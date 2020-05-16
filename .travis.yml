@@ -1,3 +1,4 @@
+lenguage: C++
 dist: xenial
 
 script:

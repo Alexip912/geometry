@@ -1,7 +1,7 @@
-#include "fname.h"
 #include "area.h"
-#include "perimeter.h"
 #include "crossing.h"
+#include "fname.h"
+#include "perimeter.h"
 #include <stdio.h>
 
 int main()

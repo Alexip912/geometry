@@ -1,8 +1,8 @@
 #include "area.h"
 #include "crossing.h"
-#include "perimeter.h"
-#include "fname.h"
 #include "ctest.h"
+#include "fname.h"
+#include "perimeter.h"
 
 CTEST(name, circle)
 {

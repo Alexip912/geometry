@@ -1,4 +1,5 @@
 #include "area.h"
+#include "check.h"
 #include "crossing.h"
 #include "ctest.h"
 #include "fname.h"
@@ -55,7 +56,6 @@ CTEST(perim, perimeter)
     ASSERT_EQUAL(1, a);
     a = perimeter(-45);
     ASSERT_EQUAL(1, a);
-
 }
 
 CTEST(cross, crossing)
@@ -78,4 +78,29 @@ CTEST(cross, crossing)
     ASSERT_EQUAL(1, a);
     a = crossing(1, 1, 1, 1, -2, -3);
     ASSERT_EQUAL(1, a);
+}
+
+CTEST(check, number)
+{
+    char* a = "fhjhfhjf";
+    int flag = is_valid_number(a);
+    ASSERT_EQUAL(-1, flag);
+    a = "";
+    flag = is_valid_number(a);
+    ASSERT_EQUAL(-1, flag);
+    a = "f425";
+    flag = is_valid_number(a);
+    ASSERT_EQUAL(-1, flag);
+    a = "4af";
+    flag = is_valid_number(a);
+    ASSERT_EQUAL(-1, flag);
+    a = "123";
+    flag = is_valid_number(a);
+    ASSERT_EQUAL(1, flag);
+    a = "5";
+    flag = is_valid_number(a);
+    ASSERT_EQUAL(1, flag);
+    a = "-10";
+    flag = is_valid_number(a);
+    ASSERT_EQUAL(-1, flag);
 }

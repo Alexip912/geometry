@@ -20,18 +20,18 @@ int main()
     if (flag == 0) {
         printf("Введите координаты первой окружности - ");
         scanf("%s", sx1);
-        if (is_valid_number(sx1) == -1) {
+        if (is_valid_cord(sx1) == -1) {
             printf("Надо вводить число");
             return 0;
         }
         scanf("%s", sy1);
-        if (is_valid_number(sy1) == -1) {
+        if (is_valid_cord(sy1) == -1) {
             printf("Надо вводить число");
             return 0;
         }
         printf("Введите радиус первой окружности: ");
         scanf("%s", sr1);
-        if (is_valid_number(sr1) == -1) {
+        if (is_valid_radius(sr1) == -1) {
             printf("Надо вводить число");
             return 0;
         } else {
@@ -41,18 +41,18 @@ int main()
         }
         printf("Введите координаты второй окружности - ");
         scanf("%s", sx2);
-        if (is_valid_number(sx2) == -1) {
+        if (is_valid_cord(sx2) == -1) {
             printf("Надо вводить число");
             return 0;
         }
         scanf("%s", sy1);
-        if (is_valid_number(sy1) == -1) {
+        if (is_valid_cord(sy1) == -1) {
             printf("Надо вводить число");
             return 0;
         }
         printf("Введите радиус первой окружности: ");
         scanf("%s", sr2);
-        if (is_valid_number(sr2) == -1) {
+        if (is_valid_radius(sr2) == -1) {
             printf("Надо вводить число");
             return 0;
         } else {
